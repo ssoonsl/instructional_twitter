@@ -1,25 +1,16 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-6 col-md-offset-3">
 
       <% @tweets.each do |tweet| %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><%= tweet.user.email %></h3>
+            <strong><%= tweet.user.email %></strong>
+            <%= link_to "Replies (#{tweet.replies.count})", tweet_path(id: tweet.id), class: 'pull-right' %>
           </div>
           <div class="panel-body">
             <%= tweet.body %>
           </div>
-
-          <ul class="list-group">
-            <% tweet.replies.each do |reply| %>
-            <li class="list-group-item">
-              <span class="badge"><%= reply.user.email %></span>
-              <%= reply.body %>
-            </li>
-            <% end %>
-          </ul>
-
         </div>
       <% end %>
 

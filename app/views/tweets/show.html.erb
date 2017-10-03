@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <h3><%= @tweet.user.email %></h3>
+      <div class="well">
+        <p><%= @tweet.body %></p>
+      </div>
+
+      <% @replies.each do |reply| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong><%= reply.user.email %></strong>
+          </div>
+          <div class="panel-body">
+            <%= reply.body %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="form-group text-center">
+        <%= form_for @reply, url: tweet_replies_path(tweet_id: @tweet.id), method: :post do |f| %>
+          <%= f.text_area :body, class: 'form-control' %>
+          <%= f.submit 'Post a reply', class: 'btn btn-default' %>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>
