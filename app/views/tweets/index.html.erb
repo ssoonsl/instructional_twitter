@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <% @tweets.each do |tweet| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong><%= tweet.user.email %></strong>
+            <%= link_to "Replies (#{tweet.replies.count})", tweet_path(id: tweet.id), class: 'pull-right' %>
+          </div>
+          <div class="panel-body">
+            <%= tweet.body %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
