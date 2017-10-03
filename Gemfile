@@ -55,5 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Flexible authentication solution for Rails with Warden
 gem 'devise'
+# A library for generating fake data such as names, addresses, and phone numbers.
+gem 'faker'
 # Official Sass port of Bootstrap 2 and 3.
 gem 'bootstrap-sass'
