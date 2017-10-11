@@ -1,0 +1,10 @@
+You have received a new reply!
+==============================
+
+Your tweet was:
+<%= @tweet.body %>
+
+The reply was posted by <%= @reply.user.email %>:
+<%= @reply.body %>
+
+Click this link to see your tweet: <%= tweet_url(id: @tweet.id) %>

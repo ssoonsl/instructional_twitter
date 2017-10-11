@@ -7,6 +7,7 @@ class RepliesController < ApplicationController
     @reply = @tweet.replies.build(reply_params)
     @reply.user = current_user
     if @reply.save
+      TweetMailer.new_reply(@reply).deliver_later
       redirect_to tweet_path(@tweet)
     else
       render 'tweets/show'
